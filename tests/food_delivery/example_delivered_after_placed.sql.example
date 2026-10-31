@@ -1,0 +1,7 @@
+-- Rename to .sql to switch this test on.
+-- Rule: a delivered order has a delivered_at later than its placed_at.
+-- Returns the orders that break the rule; zero rows = pass.
+SELECT order_id, placed_at, delivered_at
+FROM food_delivery.orders
+WHERE status = 'delivered'
+  AND (delivered_at IS NULL OR delivered_at <= placed_at);

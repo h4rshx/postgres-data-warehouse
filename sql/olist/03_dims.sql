@@ -1,0 +1,11 @@
+-- 03_dims.sql · dimension tables · build on Wed 11 Nov
+--
+-- Requirements
+--   [ ] drop and recreate schema dw here (dims are built first)
+--   [ ] every dim: a surrogate key (bigint identity) plus the natural key from the source
+--   [ ] dim_customer: one row per customer_unique_id, NOT per customer_id (D-05)
+--   [ ] dim_product: English category, weight and size columns
+--   [ ] dim_seller: city and state
+--   [ ] dim_date: one row per day covering every order date, built with generate_series;
+--       date_key as a yyyymmdd integer, plus year, quarter, month, month_name, weekday,
+--       is_weekend

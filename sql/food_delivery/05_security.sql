@@ -1,0 +1,12 @@
+-- 05_security.sql · roles and row-level security · build on Fri 6 Nov
+--
+-- Requirements
+--   [ ] role analyst: read-only on food_delivery (USAGE on the schema, SELECT on its tables
+--       and views)
+--   [ ] restaurant owners see only their own restaurant's orders and order items
+--       hint: restaurants.owner_login compared with current_user in a policy
+--   [ ] enable row-level security on orders and order_items
+--   [ ] prove it: SET ROLE to one owner, count orders, compare with the full count
+--   [ ] roles belong to the whole server, not the schema: create them only if they do not
+--       exist yet, so reruns still work
+--   [ ] no real passwords in this file

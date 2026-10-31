@@ -1,0 +1,11 @@
+-- 06_marts.sql · business views · build on 16 to 20 Nov
+--
+-- Requirements
+--   [ ] drop and recreate schema mart; every view reads only from dw
+--   [ ] monthly_revenue: revenue per month, running total, month-over-month change
+--   [ ] top_products_by_category: top 3 per category (ROW_NUMBER)
+--   [ ] seller_ranking: sellers ranked by revenue within each state (DENSE_RANK)
+--   [ ] delivery_sla_by_state: average delivery days and share of late orders
+--   [ ] cohort_retention: customers grouped by first-purchase month, share who buy again in
+--       months 1, 2 and 3
+--   [ ] rfm_segments: recency, frequency and monetary scores 1 to 5 (NTILE) and a segment name

@@ -1,0 +1,7 @@
+-- Rename to .sql to switch this test on; change table names to match yours.
+-- Rule: every order item belongs to an order.
+-- Returns the orphan items; zero rows = pass.
+SELECT oi.order_id, oi.order_item_id
+FROM staging.order_items AS oi
+LEFT JOIN staging.orders AS o USING (order_id)
+WHERE o.order_id IS NULL;

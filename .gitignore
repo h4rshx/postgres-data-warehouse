@@ -1,0 +1,21 @@
+# secrets
+.env
+*.key
+*credentials*.json
+
+# data: never commit datasets, download them (see data/README.md)
+data/*
+!data/README.md
+*.csv
+*.parquet
+*.zip
+
+# database dumps
+*.dump
+*.backup
+*.sql.gz
+
+# editors and OS
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,9 @@
+-- 04_facts.sql · fact tables · build on Thu 12 Nov
+--
+-- Requirements
+--   [ ] fact_order_items, grain: one row per order item
+--       surrogate keys to every dim, purchase_date_key, price, freight_value
+--   [ ] upgrade: partition fact_order_items by purchase year (D-08)
+--   [ ] fact_orders, grain: one row per order
+--       payment_total, item_count, delivery_days, is_late, review_score
+--   [ ] check: total price in fact_order_items equals the total in staging

@@ -1,0 +1,43 @@
+# Stretch item: builds Part A from scratch and runs its tests on every push.
+# Part B needs the Olist CSVs, which are not in the repo, so CI covers Part A only.
+name: build-and-test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  part-a:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: de
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: warehouse
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U de -d warehouse"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: de
+      PGPASSWORD: ci-only-password
+      PGDATABASE: warehouse
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Part A
+        run: |
+          for f in sql/food_delivery/*.sql; do
+            echo "-> $f"
+            psql -X -q -v ON_ERROR_STOP=1 -f "$f"
+          done
+
+      - name: Test Part A
+        run: PSQL=psql scripts/run_tests.sh tests/food_delivery

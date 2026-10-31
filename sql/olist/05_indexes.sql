@@ -1,0 +1,8 @@
+-- 05_indexes.sql · indexes · build on Sat 14 Nov
+--
+-- Requirements
+--   [ ] before adding anything: time 3 slow queries with EXPLAIN (ANALYZE, BUFFERS) and write
+--       the results in docs/performance.md
+--   [ ] index the fact-table keys your queries join or filter on
+--   [ ] run ANALYZE so the planner has fresh statistics
+--   [ ] rerun the 3 queries; record the new times and what changed in each plan

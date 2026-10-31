@@ -1,0 +1,21 @@
+# Postgres for Project 0. Start it with `make up`; settings come from .env.
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"   # 5433 so the Postgres installed on your laptop (5432) doesn't clash
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./data:/data:ro                 # Olist CSVs; psql inside the container reads them from /data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:

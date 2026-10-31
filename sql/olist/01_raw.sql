@@ -1,0 +1,8 @@
+-- 01_raw.sql · raw tables · build on Mon 9 Nov
+--
+-- Requirements
+--   [ ] drop and recreate schema raw
+--   [ ] one table per CSV, columns named exactly as the CSV header
+--   [ ] every column type text, so raw never rejects a row
+--   [ ] optional: a loaded_at column (then \copy needs an explicit column list); record the
+--       choice in docs/decisions.md (D-04)

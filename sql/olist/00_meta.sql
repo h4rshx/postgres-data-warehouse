@@ -1,0 +1,6 @@
+-- 00_meta.sql · load run log · build on Mon 9 Nov
+--
+-- Requirements
+--   [ ] schema meta, created only if it does not exist: the log must survive rebuilds
+--   [ ] table etl_run_log: run_id, table_name, rows_loaded, started_at, finished_at,
+--       seconds (a generated column), status ('success' or 'failed'), error_message

@@ -1,0 +1,7 @@
+-- 04_views.sql · views for analysts · build on Fri 6 Nov
+--
+-- Requirements
+--   [ ] view restaurant_daily_revenue: restaurant, day, orders, revenue (delivered orders only)
+--   [ ] view active_users_30d: customers with at least one order in the last 30 days
+--   [ ] materialized view rider_monthly_stats: rider, month, deliveries, average delivery minutes
+--   [ ] a unique index on the materialized view, so it can be refreshed CONCURRENTLY

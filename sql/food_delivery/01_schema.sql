@@ -1,0 +1,22 @@
+-- 01_schema.sql · Part A tables · build on Wed 4 Nov
+-- `make food` reruns this file, so it must work on an empty or a full database.
+--
+-- Requirements
+--   [ ] start by dropping and recreating schema food_delivery (CASCADE)
+--   [ ] tables: customers, restaurants, menu_items, riders, orders, order_items
+--   [ ] every table: a primary key and created_at timestamptz NOT NULL DEFAULT now()
+--   [ ] customers: email UNIQUE; name, email and phone NOT NULL
+--   [ ] restaurants: cuisine, city, and owner_login (used for row-level security on 6 Nov)
+--   [ ] menu_items: price numeric(8,2) with CHECK (price > 0); foreign key to restaurants
+--   [ ] riders: vehicle_type limited to a fixed list with CHECK
+--   [ ] orders: status limited to placed, accepted, picked_up, delivered, cancelled
+--   [ ] orders: rider_id nullable (no rider until the order is accepted)
+--   [ ] orders: delivered_at must be later than placed_at whenever both are set
+--   [ ] order_items: unit_price copied at order time, never looked up from menu_items later
+--   [ ] order_items: quantity > 0; key is (order_id, line_no) or a surrogate id; record
+--       the choice in docs/decisions.md (D-01)
+--   [ ] choose ON DELETE behaviour for every foreign key; record it (D-02)
+--
+-- Upgrade, same day: menu_price_history, a Slowly Changing Dimension Type 2 table
+--   [ ] menu_item_id, price, valid_from, valid_to (NULL while current), is_current
+--   [ ] at most one current row per menu item (hint: a partial unique index)

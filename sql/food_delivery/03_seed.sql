@@ -1,0 +1,12 @@
+-- 03_seed.sql · generated data · build on Thu 5 Nov
+--
+-- Requirements
+--   [ ] call setseed(0.42) first, so every rebuild produces identical data
+--   [ ] 500 customers, 50 restaurants (at least 6 cuisines and 4 cities), 20 riders
+--   [ ] 8 to 20 menu items per restaurant
+--   [ ] 10,000 orders spread over the last 12 months, built with generate_series
+--   [ ] skew: the top 10 restaurants get about half of all orders
+--   [ ] busier at lunch (12:00 to 14:00) and dinner (19:00 to 22:00)
+--   [ ] about 5% of orders cancelled; cancelled orders have no delivered_at
+--   [ ] 1 to 4 order items per order, unit_price copied from menu_items
+--   [ ] finally, change a few menu prices so menu_price_history holds real changes

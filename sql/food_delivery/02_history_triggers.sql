@@ -1,0 +1,9 @@
+-- 02_history_triggers.sql · audit trail and price history · build on Wed 4 Nov
+--
+-- Requirements
+--   [ ] table order_status_history: order_id, old_status, new_status, changed_at
+--   [ ] trigger on orders: after INSERT, and after UPDATE OF status, write one history row
+--   [ ] trigger on menu_items: when price changes, close the current menu_price_history row
+--       (set valid_to and is_current = false) and insert a new current row
+--   [ ] new menu items also get their first price history row
+--   [ ] try it by hand: change one order's status twice, then read its history

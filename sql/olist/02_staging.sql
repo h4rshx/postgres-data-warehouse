@@ -1,0 +1,11 @@
+-- 02_staging.sql · typed and cleaned tables · build on Wed 11 Nov
+--
+-- Requirements
+--   [ ] drop and recreate schema staging; build each table from raw
+--   [ ] cast every column to its real type (timestamps, numeric, integer)
+--   [ ] orders: keep undelivered orders; their delivery dates stay NULL
+--   [ ] reviews: review_id repeats; choose which row wins and record the rule (D-06)
+--   [ ] geolocation: one row per zip code prefix; record how (D-07)
+--   [ ] products: English category from the translation table; categories missing from it
+--       get a fallback value, not NULL
+--   [ ] compare row counts with raw and explain every difference in data_dictionary.md
